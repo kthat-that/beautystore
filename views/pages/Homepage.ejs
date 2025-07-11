@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Page</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      xintegrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="/css/Homepage.css" />
+    <link rel="stylesheet" href="/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  </head>
+  <body>
+    <script src="./SliderScript.js"></script>
+
+    <header>
+      <div class="container-fluid menu">
+        <div class="container">
+          <div class="row">
+            <nav
+              class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
+            >
+              <div class="logo">
+                <a href=""><i class="fa-solid fa-bars"></i></a>
+                <!-- <a href="#">A3 Skincare</a> -->
+                <img src="/img/imgs/logo.png" alt="logo" />
+              </div>
+              <ul>
+                <li>
+                  <a href="/Homepage">Home</a>
+                </li>
+                <li>
+                  <a href="/Skincare">Skincare</a>
+                </li>
+                <li>
+                  <a href="/About">About</a>
+                </li>
+                <li>
+                  <a href="/Contact">Contact</a>
+                </li>
+              </ul>
+              <div class="icon">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <i class="fa-regular fa-user"></i>
+                <i class="fa-solid fa-cart-shopping"></i>
+              </div>
+
+              <div class="d-flex justify-content-between">
+                  <% if (!user) { %>
+                    <div class="me-4">
+                      <a href="/signin">
+                        <button class="btn btn-primary btn_auth">Login</button>
+                      </a>
+                    </div>
+                    <div>
+                      <a href="/register">
+                        <button class="btn btn-outline-primary btn_auth">Sign Up</button>
+                      </a>
+                    </div>
+                  <% } else { %>
+                    <div>
+                      <a href="/logout">
+                        <button class="btn btn-danger">Logout</button>
+                      </a>
+                    </div>
+                  <% } %>
+              </div>
+
+            </nav>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section>
+      <div class="container-fluid">
+        <div class="row">
+          <div
+            class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 hero-banner"
+          >
+            <div class="swiper mySwiper">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <img src="https://wmg.stylekorean.com//Wholesale/MainBanner/20250527152427_nQeFdFOQ3M.jpg" alt="weyoung" />
+                </div>
+                <div class="swiper-slide">
+                  <img src="https://i.pinimg.com/736x/d9/8f/99/d98f99c2ed78365cfb156d1124f7633e.jpg" alt="pka-banner" />
+                </div>
+                <div class="swiper-slide">
+                  <img src="https://wmg.stylekorean.com//Wholesale/MainBanner/20250122114116_BY2Vbvp5IQ.png" alt="skin1004" />
+                </div>
+                <div class="swiper-slide">
+                  <img src="https://wmg.stylekorean.com//Wholesale/MainBanner/20250421133504_6oKkKkIpmS.jpg" alt="3ce" />
+                </div>
+              </div>
+              <div class="swiper-button-next"></div>
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+      <section>
+        <h2 class="section-title" id="new-prod-title">Our Sponsor</h2>
+        <div class="container">
+          <div class="row" id="new-prod-row">
+            <div
+              class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4 product-card"
+              id="new-prod-card3"
+            >
+              <a href="">
+                <img src="https://i.pinimg.com/736x/2b/2c/ef/2b2ceff22d881853299fd38f7254f13e.jpg" alt="" />
+              </a>
+            </div>
+            <div
+              class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4 product-card"
+              id="new-prod-card3"
+            >
+              <a href="">
+                <img src="https://i.pinimg.com/736x/da/17/2a/da172a7d546fbacf0e916d3a4b1ac622.jpg" alt="" />
+              </a>
+            </div>
+            <div
+              class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4 product-card"
+              id="new-prod-card3"
+            >
+              <a href="">
+                <img src="https://i.pinimg.com/736x/27/af/24/27af2491cb1de59b7f2d7e88c886213c.jpg" alt="" />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="container">
+          <div class="row" id="new-prod-row">
+            <div
+              class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4 product-card"
+              id="new-prod-card2"
+            >
+              <a href="">
+                <img src="./Pictures/Tirk Dos.jpeg" alt="" />
+              </a>
+            </div>
+            <div
+              class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4 product-card"
+              id="new-prod-card2"
+            >
+              <a href="">
+                <img src="./Pictures/Nokoreach.jpeg" alt="" />
+              </a>
+            </div>
+          </div>
+        </div> -->
+      </section>
+
+      <section>
+        <h2 class="section-title">New Product</h2>
+        <div class="container">
+          <div class="row">
+            <% products.forEach(product => { %>
+              <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-6 col-6 product-card">
+                <div class="product-img">
+                  <img src="/upload/<%= product.img %>" alt="<%= product.ProductName %>" />
+                </div>
+                <div class="product-name">
+                  <h3><%= product.ProductName %></h3>
+                  <h4>$<%= product.Price %></h4>
+                </div>
+                <div class="product-description">
+                  <h4><%= product.Description %></h4>
+                </div>
+                <a href="/details/<%= product.ProductID %>">
+                  <button type="button" class="btnCart">Add to Cart</button>
+                </a>
+                <button type="button" class="btnBuy">Buy Now</button>
+              </div>
+            <% }); %>
+
+           
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="section-title">New Arrivals</h2>
+        <div class="container">
+          <div class="row">
+            
+           <% if (newproducts && newproducts.length > 0) { %>
+              <% newproducts.forEach(newproduct => { %>
+                <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-6 col-6 product-card">
+                  <div class="product-img">
+                    <img src="/upload/<%= newproduct.img %>" alt="<%= newproduct.name %>" />
+                  </div>
+                  <div class="product-name">
+                    <h3><%= newproduct.name %></h>
+                    <h4>$<%= newproduct.price %></h4>
+                  </div>
+                  <div class="product-description ">
+                    <h4><%= newproduct.des %></h4>
+                  </div>
+                 <a href="/newdetails/<%= newproduct.id %>">
+                    <button type="button" class="btnCart">Add to Cart</button>
+                  </a>
+                  
+                </div>
+              <% }); %>
+            <% } else { %>
+              <p>No products found.</p>
+            <% } %>
+
+
+          
+
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-section">
+          <h3>Open Skincare</h3>
+          <p>
+            We believe skincare should be accessible to all.<br />
+            Explore our range of open-source formulas and<br />
+            educational content that empowers you to<br />
+            understand and personalize your skincare journey.
+          </p>
+          <p class="copyright">
+            © 2025 Glow & Grace Skincare. All rights reserved.
+          </p>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-tiktok"></i></a>
+            <a href="#"><i class="fab fa-telegram-plane"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-section">
+          <h4>Foot Menu</h4>
+          <ul>
+            <li><a href="#">New Arrivals</a></li>
+            <li><a href="#">Recommand Products</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Terms&Conditions</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="us">
+          <div class="news">
+            NEWSLETTER <br />
+            <br />
+            <p>
+              Subscribe to receive updates, access to exclusive deals, and more.
+            </p>
+            <div class="search-box">
+              <input
+                type="text"
+                name=""
+                id=""
+                placeholder="Enter your email address "
+              />
+            </div>
+            <div class="sub">SUBSCRIBE</div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+  <script src="script.js"></script>
+</html>

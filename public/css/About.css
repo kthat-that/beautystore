@@ -1,0 +1,267 @@
+/* ===================== HEADER MENU ===================== */
+.menu {
+  background-color: #fd6f8e;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+}
+
+nav .logo i {
+  color: white;
+  font-size: 20px;
+  padding: 20px;
+}
+
+nav .logo img {
+  width: 100px;
+  height: 50px;
+  object-fit: cover;
+}
+
+nav ul {
+  text-align: center;
+  list-style: none;
+  display: flex;
+  gap: 40px;
+  margin-top: 16px;
+  padding: 15px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: black;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+nav ul li a:hover {
+  color: white;
+  transition: 0.3s;
+}
+
+.icon {
+  display: flex;
+  gap: 25px;
+  font-size: 20px;
+  color: white;
+}
+
+/* ===================== TEAM INTRO ===================== */
+.team-intro {
+  background-color: rgba(221, 160, 221, 0.21);
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.team-intro h1 {
+  font-size: 36px;
+  color: #f45094;
+}
+
+.team-intro p {
+  font-size: 18px;
+  color: #888;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* ===================== TEAM MEMBERS ===================== */
+.developers {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.developers h2 {
+  color: #f45094;
+  font-size: 28px;
+  margin-bottom: 30px;
+}
+
+.developer-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.card {
+  background-color: #fff0f6;
+  width: 250px;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.card img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+
+.card h3 {
+  font-size: 18px;
+  color: #333;
+  margin: 5px 0;
+}
+
+.card .role {
+  font-size: 14px;
+  color: #888;
+  margin-bottom: 10px;
+}
+
+.card p {
+  font-size: 14px;
+  color: #444;
+}
+
+/* ===================== FOOTER ===================== */
+.footer {
+  background-color: #fd6f8e; 
+  color: white;
+  padding: 30px 70px;
+  font-family: 'Arial', sans-serif;
+  margin-top: 20px;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: auto;
+  gap: 30px;
+}
+
+.footer-section, .us {
+  flex: 1 1 250px;
+}
+
+.footer-section h3,
+.footer-section h4 {
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 15px;
+}
+
+.footer-section p {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 8px;
+}
+
+.footer-section ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 14px;
+  transition: 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+  text-decoration: underline;
+}
+
+.social-icons {
+  margin-top: 15px;
+}
+
+.social-icons a {
+  margin-right: 12px;
+  color: white;
+  font-size: 18px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #ffe0e7;
+}
+
+.footer .copyright {
+  margin-top: 15px;
+  font-size: 13px;
+}
+
+/* ===================== NEWSLETTER ===================== */
+.search-box {
+  width: 100%;
+  height: 40px;
+  background-color: white;
+  display: flex;
+  overflow: hidden;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  border: 1px solid #9b9b9b;
+}
+
+.search-box input {
+  width: 90%;
+  height: 100%;
+  outline: none;
+  border: none;
+  padding: 9px;
+  letter-spacing: normal;
+}
+
+.sub {
+  width: 150px;
+  height: 40px;
+  letter-spacing: 3px;
+  color: black;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 3;
+  font-size: 12px;
+  background-color: white;
+  padding: 2px;
+  border-radius: 4px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.sub:hover {
+  color: white;
+  background-color: black;
+}
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    gap: 40px;
+  }
+}

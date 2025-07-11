@@ -1,0 +1,228 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.bg-gradient-primary{
+    background-color: #05445e;
+}
+
+.lognin,
+.register{
+    
+    width: 100%;
+    text-decoration: none;
+    border-radius: 20px;
+    border: 1px solid red;
+    height: 39px;
+    background-color: #fff;
+  }
+
+  .bg-login-image{
+    width: 420px;
+    height: 570px;
+  }
+
+  .bg-register-image{
+    width: 100%;
+    height: 600px;
+  }
+
+  .bg-register-image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .bg-login-image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  img{
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  th,
+  td{
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .action{
+    /* margin: auto; */
+    margin-top: 30px;
+    /* background-color: red; */
+  }
+
+  .btn_auth{
+    width: 100px;
+    height: 38px;
+    font-size: 17px;
+    text-align: center;
+    padding-top: 3px;
+    color: #fff;
+  }
+
+  .margin_top{
+    margin-top: 190px;
+  }
+ .banner .margin_top .content_page{
+    height: 100%;
+    width: 100%;
+}
+
+.hero-banner{
+  margin-left: 0;
+  margin-right: 0;
+  padding-top: 0;
+}
+
+.banner{
+  width: 100%;
+  margin-right: 0;
+  padding-right: 0;
+  margin-top: 60px;
+  height: 500px;
+  background-image: url(../img/3ce.png);
+  background-size: cover;
+}
+
+.auna .banner{
+   margin-top: 60px;
+  height: 500px;
+  background-image: url(../img/imgs/innisfree.png);
+  background-size: cover;
+}
+
+.pka .banner{
+   margin-top: 60px;
+  height: 500px;
+  background-image: url(../img/Romdoul.png);
+  background-size: cover;
+}
+
+.skin .banner{
+   margin-top: 60px;
+  height: 500px;
+  background-image: url(../img/signin.jpg);
+  background-size: cover;
+}
+
+.skincare .banner{
+   margin-top: 60px;
+  height: 500px;
+  background-image: url(../img/skin1.jpg);
+  background-size: cover;
+}
+
+h3{
+  margin-top: 7px;
+  font-size: 20px !important;
+  font-weight: 500;
+  color: blue;
+}
+
+h4{
+  font-size: 17px;
+}
+
+.btnCart {
+  background-color: #ffffff;
+  color: #ff6583;
+  border-radius: 30px;
+  padding: 6px 18px;
+  transition: background-color 0.2s ease-in-out;
+  width: 100%;
+  margin: 6px 0px;
+  border: 0.7px solid;
+  font-size: 16px;
+  font-weight: bold;
+}
+.btnCart:hover {
+  background-color: #ff83bc;
+  color: white;
+  border: 0.7px solid #ff83bc;
+}
+.btnBuy {
+  background-color: #f43f5e;
+  color: white;
+  border-radius: 30px;
+  padding: 6px 18px;
+  transition: background-color 0.2s ease-in-out;
+  width: 100%;
+  margin: 6px 0px ;
+  border: 0.7px solid #f43f5e;
+  font-size: 16px;
+  font-weight: bold;
+}
+.btnBuy:hover {
+  background-color: #ff83bc;
+  color: white;
+  border: 0.7px solid #ff83bc;
+}
+
+.product-card {
+  border: 0.3px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 12px;
+  margin: 10px  ;
+  width: 300px;
+  transition: all 0.4s ease;
+}
+.product-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transform: translateY(-5px);
+}
+.product-card .product-img {
+  border-radius: 12px;
+  height: 240px;
+  width: 100%;
+}
+
+.product-card .product-img img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.description{
+  margin-top: 30px;
+}
+.description p{
+  font-size: 19px;
+}
+
+.product-images{
+  width: 100%;
+  height: 400px;
+  margin-top: 0;
+  padding-top: 0 !important;
+
+}
+
+.product-images .thumbnail-row{
+  width: 100%;
+  height: 100%;
+}
+
+.product-images .thumbnail-row img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product-description{
+   display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}

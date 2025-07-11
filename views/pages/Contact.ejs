@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="/css/Contact.css" />
+   <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header-section">
+     <section>
+      <div class="container-fluid menu">
+        <div class="container">
+          <div class="row">
+            <nav
+              class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12"
+            >
+              <div class="logo">
+                <a href=""><i class="fa-solid fa-bars"></i></a>
+                <!-- <a href="#">A3 Skincare</a> -->
+               <img src="/img/imgs/logo.png" alt="logo" />
+              </div>
+              <ul>
+                <li>
+                  <a href="/Homepage">Home</a>
+                </li>
+                <li>
+                  <a href="/Skincare">Skincare</a>
+                </li>
+                <li>
+                  <a href="About">About</a>
+                </li>
+                <li>
+                  <a href="/Contact">Contact</a>
+                </li>
+              </ul>
+              <div class="icon">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <i class="fa-regular fa-user"></i>
+                <i class="fa-solid fa-cart-shopping"></i>
+              </div>
+
+               <div class="d-flex justify-content-between">
+                  <% if (!user) { %>
+                    <div class="me-4">
+                      <a href="/signin">
+                        <button class="btn btn-primary btn_auth">Login</button>
+                      </a>
+                    </div>
+                    <div>
+                      <a href="/register">
+                        <button class="btn btn-outline-primary btn_auth">Sign Up</button>
+                      </a>
+                    </div>
+                  <% } else { %>
+                    <div>
+                      <a href="/logout">
+                        <button class="btn btn-danger">Logout</button>
+                      </a>
+                    </div>
+                  <% } %>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Phone-devive -->
+     <!-- <nav class="nav-phone">
+    <div class="nav-left">
+      <i class="fas fa-bars menu-icon"></i>
+      <img src="Imgae/Logo.png" alt="">
+    </div>
+    <div class="nav-right">
+      <i class="fas fa-search"></i>
+      <i class="fas fa-user"></i>
+      <i class="fas fa-shopping-cart"></i>
+    </div>
+  </nav> -->
+  </header>
+
+
+   <div class="container text-center">
+      <h1 class="contact-title">Contact Us</h1>
+      <p class="contact-subtitle">
+        Have questions about our skincare products or need help choosing the <br> right routine for your skin type? We're here for you! Reach out <br> to our friendly team using the form below, and we’ll get back
+        <br> to you with personalized advice and support.
+    </p>
+    </div>
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <div class="container">
+      <div class="row">
+        <!-- Left Column -->
+        <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 contact-info">
+          <h3 class="section-title">GET IN TOUCH</h3>
+          <p class="info-description">
+            We’d love to hear from you! Whether you have a question about your skincare routine, need help with a product, or just want to say hello — don’t <br>hesitate to get in touch.
+            Our team is here to help you <br>feel confident and radiant in your skin.
+        </p>
+          <ul class="contact-list">
+            <li class="contact-item">
+              <span class="icon">
+                <img src="./imgs/Imgae/icons8-location-30.png" alt="">
+               </span>
+              <span>London Eye, London, UK</span>
+            </li>
+
+            <li class="contact-item">
+              <span class="icon">
+                <img src="./imgs/Imgae/icons8-phone-50.png" alt="Phone"/>
+            </span>
+              <span>+123-456-7890</span>
+            </li>
+            <li class="contact-item">
+              <span class="icon">
+                <img src="./imgs/Imgae/icons8-email-open-50.png" alt="Email"/>
+            </span>
+              <span>mailto@subx.com</span>
+            </li>
+          </ul>
+          <div class="social-links">
+            <span>Follow Us:</span>
+            <a href="">
+                <img src="imgs/Imgae/icons8-facebook-30.png" alt="Facebook"/>
+            </a>
+            <a href="">
+                <img src="imgs/Imgae/icons8-tiktok-50.png" alt="Twitter"/>
+            </a>
+            <a href="">
+                <img src="imgs/Imgae/icons8-instagram-logo-30.png" alt="Instagram"/>
+            </a>
+          </div>
+        </div>
+
+        <!-- Right Column -->
+        <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12 ">
+          <div class="message-form-container">
+            <h4 class="form-title">SEND A MESSAGE</h4>
+            <form>
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Name" />
+              </div>
+              <div class="form-group">
+                <input type="email" class="form-control" placeholder="E-mail address" />
+              </div>
+              <div class="form-group">
+                <textarea class="form-control" rows="4" placeholder="Message"></textarea>
+              </div>
+              <p class="form-note">By submitting, you agree to the processing of your personal data.</p>
+              <button type="submit" class="btn-submit">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- Map -->
+      <div class="row">
+        <div class="col-12">
+          <iframe class="map-iframe" src="https://maps.google.com/maps?q=london%20eye&t=&z=13&ie=UTF8&iwloc=&output=embed" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-section">
+          <h3>Open Skincare</h3>
+          <p>
+            We believe skincare should be accessible to all.<br />
+            Explore our range of open-source formulas and<br />
+            educational content that empowers you to<br />
+            understand and personalize your skincare journey.
+          </p>
+          <p class="copyright">
+            © 2025 Glow & Grace Skincare. All rights reserved.
+          </p>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-tiktok"></i></a>
+            <a href="#"><i class="fab fa-telegram-plane"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-section">
+          <h4>Foot Menu</h4>
+          <ul>
+            <li><a href="#">New Arrivals</a></li>
+            <li><a href="#">Recommand Products</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Terms&Conditions</a></li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </div>
+        
+        <div class="us">
+          <div class="news">
+            NEWSLETTER <br />
+            <br />
+            <p>
+              Subscribe to receive updates, access to exclusive deals, and more.
+            </p>
+            <div class="search-box">
+              <input
+                type="text"
+                name=""
+                id=""
+                placeholder="Enter your email address "
+              />
+            </div>
+            <div class="sub">SUBSCRIBE</div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+<!-- Font Awesome for icons -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

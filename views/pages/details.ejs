@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mixsoon Bean Essence</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/details.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/vendor/bootstrap/js/css/bootstrap.css">
+    <link rel="stylesheet" href="/vendor/bootstrap/js/css/bootstrap.min.css">
+    
+    
+  </head>
+  <body>
+    <div class="container">
+     
+      <div class="product-main ">
+        <div class="product-images">
+          <div class="thumbnail-row">
+            <img src="/upload/<%= product.img %>" alt="<%= product.ProductName %>" />
+            
+          </div>
+        </div>
+        <div class="product-info">
+          <h2 id="ProductName" > Product: <span class="text-primary"> <%= product.ProductName %></span></h2>
+         <div id="Price" class="price">Price : $<%= product.Price %></div>
+         <p><strong>Brand:</strong> <%= product.brand %></p>
+        <p><strong>Category:</strong> <%= product.category %></p>
+        <p><strong>Stock:</strong> <%= product.StockQty %> </p>
+          <div class="details">
+            <!-- <p><strong>Skin Type:</strong> All type</p>
+            <p><strong>Availability:</strong> In Stock</p> -->
+            <p>
+              <strong>Volume:</strong>
+              <span class="volume-options">
+                <button>30ml</button>
+                <button>60ml</button>
+                <button>80ml</button>
+                <button>100ml</button>
+              </span>
+            </p>
+            <div class="separator"></div>
+          </div>
+          <div class="quantity-container">
+            <div class="quantity">
+              <button class="minus" aria-label="Decrease">&minus;</button>
+              <input
+                type="number"
+                class="input-box"
+                value="1"
+                min="1"
+                max="10"
+              />
+              <button class="plus" aria-label="Increase">&plus;</button>
+            </div>
+            <div class="action-buttons">
+              <button class="buy">Buy Now</button>
+            </div>
+          </div>
+         
+        </div>
+      </div>
+      <div class="description ">
+        <p class="text-primary de_des"> Description : <br> <span class="text-dark"><%= product.Description %></span> </p>
+        <h3>Product Detail</h3>
+        <ol class="ms-5">
+          <li>After cleansing</li>
+          <li>Wipe and rub with residue-absorbing tip applicator</li>
+          <li>Wash off residue with water or wipe it with toner pad</li>
+        </ol>
+      </div>
+      <div class="you-may-also-like">
+        <h3>You may also like</h3>
+        <div class="suggestion">
+          <div class="row d-flex justify-content-between">
+            <div class="col-4">
+              <div class="product_card">
+                <img id="img" src="/img/webpic/a3.avif" alt="Product" />
+                <div class="info">
+                  <div class="top-row">
+                    <p class="name" id="name">Centella Calming Gel </p>
+                    <p class="suggest-price" id="price">16.00$</p>
+                  </div>
+                  <div class="bottom-row">
+                    <span class="stars">★★★★★</span>
+                    <span class="rating">4.5</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="product_card">
+                <img id="img" src="/img/webpic/a2.webp" alt="Product" />
+                <div class="info">
+                  <div class="top-row">
+                    <p class="name" id="name">Iunik Centella Edition</p>
+                    <p class="suggest-price" id="price">18.00$</p>
+                  </div>
+                  <div class="bottom-row">
+                    <span class="stars">★★★★★</span>
+                    <span class="rating">4.5</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="product_card">
+                <img id="img" src="/img/webpic/a1.webp" alt="Product" />
+                <div class="info">
+                  <div class="top-row">
+                    <p class="name" id="name">Bubble Cleansing Foam</p>
+                    <p class="suggest-price" id="price">8.99$</p>
+                  </div>
+                  <div class="bottom-row">
+                    <span class="stars">★★★★★</span>
+                    <span class="rating">4.5</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="product_card">
+                <img id="img" src="/img/webpic/s2.webp" alt="Product" />
+                <div class="info">
+                  <div class="top-row">
+                    <p class="name" id="name">Calming Daily Sunscreen</p>
+                    <p class="suggest-price" id="price">14.99$</p>
+                  </div>
+                  <div class="bottom-row">
+                    <span class="stars">★★★★★</span>
+                    <span class="rating">4.5</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+         
+         
+          
+      </div>
+    </div>
+   
+  </body>
+  <script>
+    (function () {
+      const quantityContainer = document.querySelector(".quantity");
+      const minusBtn = quantityContainer.querySelector(".minus");
+      const plusBtn = quantityContainer.querySelector(".plus");
+      const inputBox = quantityContainer.querySelector(".input-box");
+
+      updateButtonStates();
+
+      quantityContainer.addEventListener("click", handleButtonClick);
+      inputBox.addEventListener("input", handleQuantityChange);
+
+      function updateButtonStates() {
+        const value = parseInt(inputBox.value);
+        minusBtn.disabled = value <= 1;
+        plusBtn.disabled = value >= parseInt(inputBox.max);
+      }
+
+      function handleButtonClick(event) {
+        if (event.target.classList.contains("minus")) {
+          decreaseValue();
+        } else if (event.target.classList.contains("plus")) {
+          increaseValue();
+        }
+      }
+
+      function decreaseValue() {
+        let value = parseInt(inputBox.value);
+        value = isNaN(value) ? 1 : Math.max(value - 1, 1);
+        inputBox.value = value;
+        updateButtonStates();
+      }
+
+      function increaseValue() {
+        let value = parseInt(inputBox.value);
+        value = isNaN(value) ? 1 : Math.min(value + 1, parseInt(inputBox.max));
+        inputBox.value = value;
+        updateButtonStates();
+      }
+    })();
+  </script>
+</html>
