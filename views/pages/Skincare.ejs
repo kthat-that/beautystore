@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+        <link rel="shortcut icon"  type="image/png" href="/img/about.img/logo_head.png">
+    <title>Skincare</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
@@ -87,10 +88,13 @@
             class="col-xxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12  hero-banner banner"
           >
           <div class="margin_top">
-            <div class="content_page">
-              <div class="detail m-auto ">
-                <h2 class="fs-1 text-danger text-center mt-5">Welcome to Auna Brands</h2>
-                <p class="fs-4 text-center ">It's from USA, It's have a lot of products and good quality with a nice prices.</p>
+            <div class="content_page position-relative">
+              <div class="details m-auto ">
+                <h2 class="text-danger  ">Welcome to Our Product's Brands</h2>
+                <p class="fs-4  ">Shopping with Beauty-Store, discover skincare that brings out your natural beauty — gentle, clean, and effective.</p>
+                <a href="#" class="">
+                  <button class="btn btn-primary p-1 px-2">See More</button>
+                </a>
               </div>
             </div>
           </div>
@@ -108,13 +112,13 @@
           >
             <h2>Recommand Products</h2>
             <div
-              class="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 btn-Product"
+              class="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12 btn-Product" id="brands"
             >
-              <a class="btn btn-danger" href="/Auna" role="button">Auna</a>
-              <a class="btn btn-danger" href="/Phka" role="button">Phka</a>
+              <a class="btn btn-danger" id="auna" href="/Auna" role="button">Auna</a>
+              <a class="btn btn-danger" id="phka" href="/Phka" role="button">Phka</a>
              
-              <a class="btn btn-danger" href="/Skin1004" role="button">Skin1004</a>
-              <a class="btn btn-danger" href="/3CE" role="button">3CE</a>
+              <a class="btn btn-danger" id="skin1004" href="/Skin1004" role="button">Skin1004</a>
+              <a class="btn btn-danger" id="3ce" href="/3CE" role="button">3CE</a>
             </div>
           </div>
         </div>
@@ -124,141 +128,31 @@
     <section>
       <div class="container">
         <div class="row">
-          <div
-            class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-6 col-6 product-card"
-          >
-            <div class="product-img">
-              <img src="./imgs/skin1004/skin1.jpg" alt="" />
+          <% products.forEach((product, index) => { %>
+            <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-6 col-6 product-card <% if (index >= 15) { %> d-none more-product <% } %>">
+              <div class="product-img">
+                <img src="/upload/<%= product.img %>" alt="<%= product.ProductName %>" />
+              </div>
+              <div class="product-name">
+                <h3><%= product.ProductName %></h3>
+                <h4>$<%= product.Price %></h4>
+              </div>
+              <div class="product-description">
+                <h4><%= product.Description %></h4>
+              </div>
+              <a href="/details/<%= product.ProductID %>"> 
+                <button type="button" class="btnCart">View Detail</button>
+              </a>
+              <button type="button" class="btnBuy">Buy Now</button>
             </div>
-            <div class="product-name">
-              <h2>Angkeadey</h2>
-              <h4>$10.00</h4>
-            </div>
-            <div class="product-description">
-              <h3>Description</h3>
-            </div>
-            <button type="button" class="btnCart">Add to Cart</button>
-            <button type="button" class="btnBuy">Buy Now</button>
-          </div>
-          <div
-            class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-6 col-6 product-card"
-          >
-            <div class="product-img">
-              <img src="./imgs/skin1004/skin8.jpg" alt="" />
-            </div>
-            <div class="product-name">
-              <h2>Tirk Dos</h2>
-              <h4>$10.00</h4>
-            </div>
-            <div class="product-description">
-              <h3>Description</h3>
-            </div>
-            <button type="button" class="btnCart">Add to Cart</button>
-            <button type="button" class="btnBuy">Buy Now</button>
-          </div>
+          <% }); %>
 
-          <div
-            class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-6 col-6 product-card"
-          >
-            <div class="product-img">
-              <img src="./imgs/skin1004/skin2.jpg" alt="" />
-            </div>
-            <div class="product-name">
-              <h2>Nokoreach</h2>
-              <h4>$10.00</h4>
-            </div>
-            <div class="product-description">
-              <h3>Description</h3>
-            </div>
-            <button type="button" class="btnCart">Add to Cart</button>
-            <button type="button" class="btnBuy">Buy Now</button>
-          </div>
+            <div class="text-center mt-4">
+              <button id="toggleProductBtn" class="btn btn-outline-primary">See More</button>
 
-          <div
-            class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-6 col-6 product-card"
-          >
-            <div class="product-img">
-              <img src="./imgs/skin1004/skin3.jpg" alt="" />
             </div>
-            <div class="product-name">
-              <h2>Chhuk</h2>
-              <h4>$10.00</h4>
-            </div>
-            <div class="product-description">
-              <h3>Description</h3>
-            </div>
-            <button type="button" class="btnCart">Add to Cart</button>
-            <button type="button" class="btnBuy">Buy Now</button>
-          </div>
+          
 
-          <div
-            class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-6 col-6 product-card"
-          >
-            <div class="product-img">
-              <img src="./imgs/skin1004/skin4.jpg" alt="" />
-            </div>
-            <div class="product-name">
-              <h2>Kolab</h2>
-              <h4>$10.00</h4>
-            </div>
-            <div class="product-description">
-              <h3>Description</h3>
-            </div>
-            <button type="button" class="btnCart">Add to Cart</button>
-            <button type="button" class="btnBuy">Buy Now</button>
-          </div>
-
-          <div
-            class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-6 col-6 product-card"
-          >
-            <div class="product-img">
-              <img src="./imgs/skin1004/skin5.jpg" alt="" />
-            </div>
-            <div class="product-name">
-              <h2>Romdoul</h2>
-              <h4>$10.00</h4>
-            </div>
-            <div class="product-description">
-              <h3>Description</h3>
-            </div>
-            <button type="button" class="btnCart">Add to Cart</button>
-            <button type="button" class="btnBuy">Buy Now</button>
-          </div>
-
-          <div
-            class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-6 col-6 product-card"
-          >
-            <div class="product-img">
-              <img src="./imgs/skin1004/skin6.jpg" alt="" />
-            </div>
-            <div class="product-name">
-              <h2>Nokoreach</h2>
-              <h4>$10.00</h4>
-            </div>
-            <div class="product-description">
-              <h3>Description</h3>
-            </div>
-            <button type="button" class="btnCart">Add to Cart</button>
-            <button type="button" class="btnBuy">Buy Now</button>
-          </div>
-
-          <div
-            class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-6 col-6 product-card"
-          >
-            <div class="product-img">
-              <img src="./imgs/skin1004/skin7.jpg" alt="" />
-            </div>
-            <div class="product-name">
-              <h2>Chhuk</h2>
-              <h4>$10.00</h4>
-            </div>
-            <div class="product-description">
-              <h3>Description</h3>
-            </div>
-            <button type="button" class="btnCart">Add to Cart</button>
-            <button type="button" class="btnBuy">Buy Now</button>
-          </div>
-        </div>
       </div>
     </section>
 
@@ -318,4 +212,24 @@
   </body>
 
   <script src="script.js"></script>
+  <script>
+    const toggleBtn = document.getElementById('toggleProductBtn');
+    let expanded = false;
+
+    toggleBtn.addEventListener('click', function () {
+      const hiddenProducts = document.querySelectorAll('.more-product');
+
+      if (!expanded) {
+      
+        hiddenProducts.forEach(p => p.classList.remove('d-none'));
+        toggleBtn.textContent = 'Hide Products';
+        expanded = true;
+      } else {
+        
+        hiddenProducts.forEach(p => p.classList.add('d-none'));
+        toggleBtn.textContent = 'See More';
+        expanded = false;
+      }
+    });
+  </script>
 </html>

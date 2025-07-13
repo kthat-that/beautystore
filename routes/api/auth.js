@@ -1,5 +1,6 @@
 const express = require('express');
 const con = require('../../config/db');
+
 const {signupPost, signinPost, logout} = require('../../controllers/api/auth');
 
 

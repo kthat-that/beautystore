@@ -74,6 +74,64 @@ const getAllproduct = async (req , res) =>{
     });
 }
 
+const getAllSkincare = async (req , res) =>{
+     const sql = `
+    SELECT 
+        products.ProductID,
+        products.ProductName,
+        categorys.CategoryName AS category_name,
+        brands.BrandName AS brand_name,
+        products.Description,
+        products.Price,
+        products.StockQty,
+        products.img
+    FROM products
+    INNER JOIN categorys ON categorys.CategoryID = products.category_id
+    INNER JOIN brands ON brands.BrandID = products.brand_id;
+`;
+
+
+     con.query(sql, (err, data) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).send('Error retrieving products.');
+        }
+        console.log(data);
+        
+        res.render('pages/Skincare', { products: data });
+    });
+}
+
+const getBrandProducts = (brandName, page) => {
+  return (req, res) => {
+    const sql = `
+      SELECT 
+        products.ProductID,
+        products.ProductName,
+        products.Description,
+        products.Price,
+        products.StockQty,
+        products.img,
+        brands.BrandName AS brand_name
+      FROM products
+      INNER JOIN brands ON brands.BrandID = products.brand_id
+      WHERE LOWER(brands.BrandName) = ?;
+    `;
+
+    con.query(sql, [brandName.toLowerCase()], (err, products) => {
+      if (err) {
+        console.error(`Error retrieving ${brandName} products:`, err);
+        return res.status(500).send(`Error retrieving ${brandName} products.`);
+      }
+
+      res.render(`pages/${page}`, { products });
+    });
+  };
+};
+
+
+
+
 // Get create product form
 const getfrmProCreate = (req, res) => {
     con.query("SELECT * FROM `brands` ", (err, Brands) => {
@@ -197,7 +255,7 @@ const postEditPro = (req, res) => {
                 return res.status(500).send('Error uploading image.');
             }
 
-            // ✅ Prevent deleting the folder or invalid file
+            
             if (old_img && old_img !== 'profile.jpg') {
                 const oldFilePath = path.join(__dirname, '../../public/upload', old_img);
                 if (fs.existsSync(oldFilePath) && fs.lstatSync(oldFilePath).isFile()) {
@@ -221,7 +279,7 @@ const postEditPro = (req, res) => {
         });
 
     } else {
-        // No new image; just update data
+      
         const sql = "UPDATE `products` SET `ProductName`=?, `category_id`=?, `brand_id`=?, `Description`=?, `Price`=?, `StockQty`=?, `img`=? WHERE ProductID=?";
         const values = [ProductName, category, brand, Description, Price, StockQty, file, ProductID];
 
@@ -270,17 +328,25 @@ const getDetail = (req, res) => {
 
 
 
+exports.getAuna = getBrandProducts('Auna', 'Auna');
+exports.getSkin1004 = getBrandProducts('Skin1004', 'Skin1004');
+exports.get3CE = getBrandProducts('3CE', '3CE');
+exports.getPhka = getBrandProducts('Phka', 'Phka');
+
+module.exports = {
+  getAll,
+  getAllproduct,
+  getAllSkincare,
+  getfrmProCreate,     
+  postfrmProCreate,    
+  deleteProduct,
+  getEditPro,
+  postEditPro,
+  getDetail,
+  getAuna: exports.getAuna,
+  getSkin1004: exports.getSkin1004,
+  get3CE: exports.get3CE,
+  getPhka: exports.getPhka
+};
 
 
-module.exports={
-    getAll,
-    getAllproduct,
-    getfrmProCreate,
-    postfrmProCreate,
-    deleteProduct,
-    getEditPro,
-    postEditPro,
-    getDetail
-
-
-}

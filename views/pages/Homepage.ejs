@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon"  type="image/png" href="/img/about.img/logo_head.png">
     <title>Home Page</title>
 
     <link
@@ -173,25 +174,29 @@
         <h2 class="section-title">New Product</h2>
         <div class="container">
           <div class="row">
-            <% products.forEach(product => { %>
-              <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-6 col-6 product-card">
-                <div class="product-img">
-                  <img src="/upload/<%= product.img %>" alt="<%= product.ProductName %>" />
-                </div>
-                <div class="product-name">
-                  <h3><%= product.ProductName %></h3>
-                  <h4>$<%= product.Price %></h4>
-                </div>
-                <div class="product-description">
-                  <h4><%= product.Description %></h4>
-                </div>
-                <a href="/details/<%= product.ProductID %>">
-                  <button type="button" class="btnCart">Add to Cart</button>
-                </a>
-                <button type="button" class="btnBuy">Buy Now</button>
+           <% products.forEach((product, index) => { %>
+            <div class="col-xxl-3 col-xl-3 col-lg-3 col-md-6 col-sm-6 col-6 product-card <% if (index >= 6) { %> d-none more-product <% } %>">
+              <div class="product-img">
+                <img src="/upload/<%= product.img %>" alt="<%= product.ProductName %>" />
               </div>
-            <% }); %>
+              <div class="product-name">
+                <h3><%= product.ProductName %></h3>
+                <h4>$<%= product.Price %></h4>
+              </div>
+              <div class="product-description">
+                <h4><%= product.Description %></h4>
+              </div>
+              <a href="/details/<%= product.ProductID %>">
+                <button type="button" class="btnCart">View Detail</button>
+              </a>
+              <button type="button" class="btnBuy">Buy Now</button>
+            </div>
+          <% }); %>
 
+            <div class="text-center mt-4">
+              <button id="toggleProductBtn" class="btn btn-outline-primary">See More</button>
+
+            </div>
            
           </div>
         </div>
@@ -216,7 +221,7 @@
                     <h4><%= newproduct.des %></h4>
                   </div>
                  <a href="/newdetails/<%= newproduct.id %>">
-                    <button type="button" class="btnCart">Add to Cart</button>
+                    <button type="button" class="btnCart">View Detail</button>
                   </a>
                   
                 </div>
@@ -287,4 +292,26 @@
     </footer>
   </body>
   <script src="script.js"></script>
+  <script>
+    const toggleBtn = document.getElementById('toggleProductBtn');
+    let expanded = false;
+
+    toggleBtn.addEventListener('click', function () {
+      const hiddenProducts = document.querySelectorAll('.more-product');
+
+      if (!expanded) {
+      
+        hiddenProducts.forEach(p => p.classList.remove('d-none'));
+        toggleBtn.textContent = 'Hide Products';
+        expanded = true;
+      } else {
+        
+        hiddenProducts.forEach(p => p.classList.add('d-none'));
+        toggleBtn.textContent = 'See More';
+        expanded = false;
+      }
+    });
+  </script>
+
+
 </html>

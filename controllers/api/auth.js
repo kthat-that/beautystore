@@ -2,9 +2,9 @@ const con = require('../../config/db');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
-const generateToken = (id) =>{
-    return jwt.sign({id}, 'ant scholarship', {expiresIn: 3 * 24 * 60 * 60})
-}
+const generateToken = (id, role) => {
+    return jwt.sign({ id, role }, 'ant scholarship', { expiresIn: 3 * 24 * 60 * 60 });
+};
 
 
 const signupPost = async (req, res) => {
@@ -30,8 +30,8 @@ const signupPost = async (req, res) => {
         const salt = await bcrypt.genSalt();
         let hashPassword = await bcrypt.hash(body.password, 10);
 
-        let insertSql = "INSERT INTO `users`(`name`, `email`, `password`) VALUES (?, ?, ?)";
-        let values = [body.name, body.email, hashPassword];
+        let insertSql = "INSERT INTO `users`(`name`, `email`, `password`,`role`) VALUES (?, ?, ?,?)";
+        let values = [body.name, body.email, hashPassword, body.role];
 
         con.query(insertSql, values, (insertErr, data) => {
             if (insertErr) {
@@ -42,7 +42,7 @@ const signupPost = async (req, res) => {
             console.log("Inserted successfully");
 
          
-            const token = generateToken(data.insertId); 
+            const token = generateToken(data.insertId, body.role);
             res.cookie('jwtToken', token, {
                 maxAge: 3 * 24 * 60 * 60 * 1000,
                 httpOnly: true
@@ -79,11 +79,13 @@ const signinPost = (req, res) => {
         console.log(decrypedPassword);
 
         if (decrypedPassword) {
-            const token = generateToken(data[0].id);
-            res.cookie('jwtToken', token, { maxAge: 3 * 24 * 60 * 60 * 1000, httpOnly: true }); // fix maxAge in ms
+            const token = generateToken(data[0].id, data[0].role); // include role
+            res.cookie('jwtToken', token, {
+                maxAge: 3 * 24 * 60 * 60 * 1000,
+                httpOnly: true
+            });
+
             return res.redirect('/Homepage');
-        } else {
-            return res.redirect('/signin');
         }
     });
 }
