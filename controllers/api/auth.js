@@ -75,20 +75,27 @@ const signinPost = (req, res) => {
         console.log('have email');
 
         // Now it's safe to access data[0].password
-        let decrypedPassword = await bcrypt.compare(body.password, data[0].password);
-        console.log(decrypedPassword);
+        let decryptedPassword = await bcrypt.compare(body.password, data[0].password);
+        console.log(decryptedPassword);
 
-        if (decrypedPassword) {
+        if (decryptedPassword) {
             const token = generateToken(data[0].id, data[0].role); // include role
             res.cookie('jwtToken', token, {
                 maxAge: 3 * 24 * 60 * 60 * 1000,
                 httpOnly: true
             });
 
-            return res.redirect('/Homepage');
+            // Redirect based on role
+            if (data[0].role === 2) {
+                return res.redirect('/tbl_products'); // Admin
+            } else {
+                return res.redirect('/Homepage'); // Normal User
+            }
+        } else {
+            return res.redirect('/signin'); // Wrong password
         }
     });
-}
+};
 
 
 

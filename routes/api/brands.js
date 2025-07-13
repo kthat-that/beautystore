@@ -19,7 +19,7 @@ router.get('/editBrand/:BrandID',createController.geteditBrand);
 router.post('/editBrand', createController.posteditBrand);
 
 //delete
-router.get('/delete_category/:BrandID', (createController.deleteBrand));
+router.get('/delete_Brand/:BrandID', (createController.deleteBrand));
 
 
 module.exports = router;
