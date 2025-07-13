@@ -67,7 +67,7 @@ const getAllproduct = async (req , res) =>{
             console.error(err);
             return res.status(500).send('Error retrieving products.');
         }
-        console.log(data);
+        // console.log(data);
         
         res.render('pages/tbl_products', { products: data });
     });
@@ -95,7 +95,7 @@ const getAllSkincare = async (req , res) =>{
             console.error(err);
             return res.status(500).send('Error retrieving products.');
         }
-        console.log(data);
+        // console.log(data);
         
         res.render('pages/Skincare', { products: data });
     });
