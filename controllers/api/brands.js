@@ -6,7 +6,7 @@ const getBrandData = (req, res) =>{
             console.error(err);
             return res.status(500).send("Error retrieving brands");
         }
-        res.render('pages/tbl_brands', { Brands: data }); // Ensure `author` is passed
+        res.render('pages/tbl_brands', { Brands: data }); 
     });
     
 }
@@ -15,7 +15,7 @@ const getBrandData = (req, res) =>{
 
 //post create
 const postBrand = (req, res)=>{
-    console.log(req.body);
+    // console.log(req.body);
     
     let sql = "INSERT INTO `brands`( `BrandName`) VALUES (?)";
     let mySql = [req.body.BrandName, req.body.BrandID]; 

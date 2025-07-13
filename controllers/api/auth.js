@@ -8,11 +8,11 @@ const generateToken = (id, role) => {
 
 
 const signupPost = async (req, res) => {
-    console.log(req.body);
+    // console.log(req.body);
 
     let body = req.body;
 
-    // 1. Check if email already exists
+   
     let checkSql = "SELECT * FROM `users` WHERE email = ?";
     con.query(checkSql, [body.email], async (err, result) => {
         if (err) {
@@ -21,12 +21,12 @@ const signupPost = async (req, res) => {
         }
 
         if (result.length > 0) {
-            // Email already exists
+           
             console.log("Email already exists.");
             return res.send("Email already registered. Please use a different email.");
         }
 
-        // 2. If email doesn't exist, proceed with insertion
+       
         const salt = await bcrypt.genSalt();
         let hashPassword = await bcrypt.hash(body.password, 10);
 
@@ -47,7 +47,6 @@ const signupPost = async (req, res) => {
                 maxAge: 3 * 24 * 60 * 60 * 1000,
                 httpOnly: true
             });
-
          
             res.redirect('/Homepage');
         });
@@ -58,7 +57,7 @@ const signupPost = async (req, res) => {
 
 
 const signinPost = (req, res) => {
-    console.log(req.body);
+    // console.log(req.body);
     let body = req.body;
 
     con.query('SELECT * FROM `users` WHERE email = ?', [body.email], async (err, data) => {
@@ -67,32 +66,31 @@ const signinPost = (req, res) => {
             return res.status(500).send("Server error");
         }
 
-        if (data.length == 0) {
-            // Email not found
+        if (data.length == 0) { 
             return res.redirect('/signin');
         }
 
         console.log('have email');
 
-        // Now it's safe to access data[0].password
+       
         let decryptedPassword = await bcrypt.compare(body.password, data[0].password);
         console.log(decryptedPassword);
 
         if (decryptedPassword) {
-            const token = generateToken(data[0].id, data[0].role); // include role
+            const token = generateToken(data[0].id, data[0].role); 
             res.cookie('jwtToken', token, {
                 maxAge: 3 * 24 * 60 * 60 * 1000,
                 httpOnly: true
             });
 
-            // Redirect based on role
+           
             if (data[0].role === 2) {
-                return res.redirect('/tbl_products'); // Admin
+                return res.redirect('/tbl_products'); 
             } else {
-                return res.redirect('/Homepage'); // Normal User
+                return res.redirect('/Homepage'); 
             }
         } else {
-            return res.redirect('/signin'); // Wrong password
+            return res.redirect('/signin'); 
         }
     });
 };

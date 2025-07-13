@@ -5,7 +5,7 @@ const proController = require('../../controllers/api/products');
 
 const router = express.Router();
 
-// View product table 
+// View product 
 router.get('/Homepage', proController.getAll);
 
 router.get('/', requireAuth, proController.getAllproduct);
@@ -27,7 +27,7 @@ router.get('/delete/:ProductID', proController.deleteProduct);
 router.get('/details/:ProductID', proController.getDetail);
 router.post('/details', proController.getDetail);
 
-// Brand-specific pages
+// 
 router.get('/3CE', proController.get3CE);
 router.get('/Auna', proController.getAuna);
 router.get('/Phka', proController.getPhka);

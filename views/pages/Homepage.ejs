@@ -3,9 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="shortcut icon"  type="image/png" href="/img/about.img/logo_head.png">
+      <link rel="shortcut icon"  type="image/png" href="/img/about.img/logo_head.png">
     <title>Home Page</title>
 
+    <link href="css/main.css" rel="stylesheet">
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
@@ -20,11 +21,13 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
+     
     <link rel="stylesheet" href="/css/Homepage.css" />
     <link rel="stylesheet" href="/css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   </head>
-  <body>
+  <body >
+   
     <script src="./SliderScript.js"></script>
 
     <header>
@@ -148,26 +151,7 @@
           </div>
         </div>
 
-        <!-- <div class="container">
-          <div class="row" id="new-prod-row">
-            <div
-              class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4 product-card"
-              id="new-prod-card2"
-            >
-              <a href="">
-                <img src="./Pictures/Tirk Dos.jpeg" alt="" />
-              </a>
-            </div>
-            <div
-              class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 col-sm-4 col-4 product-card"
-              id="new-prod-card2"
-            >
-              <a href="">
-                <img src="./Pictures/Nokoreach.jpeg" alt="" />
-              </a>
-            </div>
-          </div>
-        </div> -->
+       
       </section>
 
       <section>
@@ -290,8 +274,40 @@
         </div>
       </div>
     </footer>
+    
+   
+    <!-- Preloader -->
+   <div id="preloader"></div>
+
+       <!-- Main JS File -->
+  <script src="js/main.js"></script>
+  <script>
+    window.addEventListener("load", function () {
+      const preloader = document.getElementById("preloader");
+      if (preloader) {
+        preloader.style.display = "none";
+      }
+    });
+  </script>
+  <script>
+    window.addEventListener("load", function () {
+      const preloader = document.getElementById("preloader");
+      if (preloader) {
+        preloader.style.transition = "opacity 0.5s ease";
+        preloader.style.opacity = "0";
+        setTimeout(() => {
+          preloader.style.display = "none";
+        }, 500); // Match the transition duration
+      }
+    });
+  </script>
+
+   
+
   </body>
-  <script src="script.js"></script>
+
+
+  <script src="pages/script.js"></script>
   <script>
     const toggleBtn = document.getElementById('toggleProductBtn');
     let expanded = false;
@@ -312,6 +328,8 @@
       }
     });
   </script>
+
+  
 
 
 </html>

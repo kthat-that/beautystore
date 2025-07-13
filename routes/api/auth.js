@@ -6,8 +6,6 @@ const {signupPost, signinPost, logout} = require('../../controllers/api/auth');
 
 const router = express.Router();
 
-//create
-
 router.post('/register',signupPost);
 
 

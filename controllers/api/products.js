@@ -35,7 +35,6 @@ const getAll = (req, res) => {
         return res.status(500).send('Error retrieving new products.');
       }
 
-      // ✅ Pass both products and newproducts
       res.render('pages/Homepage', {
         products: productData,
         newproducts: newProductData,
@@ -165,10 +164,10 @@ const postfrmProCreate = (req, res) => {
                 return res.status(500).send('Error uploading image.');
             }
 
-            insertProduct(); // Call insert after successful upload
+            insertProduct(); 
         });
     } else {
-        insertProduct(); // Insert with default image if no file uploaded
+        insertProduct(); 
     }
 
     function insertProduct() {
@@ -202,7 +201,7 @@ const deleteProduct = (req, res) =>{
             
         }
         if (fs.existsSync(imgPath)) {
-            fs.unlinkSync(imgPath); // Remove associated avatar
+            fs.unlinkSync(imgPath); 
         }
         res.redirect('/tbl_products');
     })

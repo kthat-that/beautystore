@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
    <link rel="shortcut icon"  type="image/png" href="/img/about.img/logo_head.png">
     <title>3CE</title>
+    <link href="css/main.css" rel="stylesheet">
     <link rel="stylesheet" href="">
     <link
       rel="stylesheet"
@@ -216,6 +217,32 @@
         </div>
       </div>
     </footer>
+     <!-- Preloader -->
+   <div id="preloader"></div>
+
+       <!-- Main JS File -->
+  <script src="js/main.js"></script>
+  <script>
+    window.addEventListener("load", function () {
+      const preloader = document.getElementById("preloader");
+      if (preloader) {
+        preloader.style.display = "none";
+      }
+    });
+  </script>
+  <script>
+    window.addEventListener("load", function () {
+      const preloader = document.getElementById("preloader");
+      if (preloader) {
+        preloader.style.transition = "opacity 0.5s ease";
+        preloader.style.opacity = "0";
+        setTimeout(() => {
+          preloader.style.display = "none";
+        }, 500); 
+      }
+    });
+  </script>
+
   </body>
 
   <script src="script.js"></script>

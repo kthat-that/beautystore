@@ -12,7 +12,7 @@ router.get('/tbl_products', requireAuth, requireAdmin, (req, res) => {
 router.get('/Homepage', checkUser, (req, res) => {
     res.render('home', { user: res.locals.user });
 });
-//create
+
 router.get('/register', signupGet);
 
 router.get('/signin', signinGet);

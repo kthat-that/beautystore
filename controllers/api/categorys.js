@@ -47,7 +47,7 @@ const getedit =  (req, res) =>{
 
 
 const postedit = (req, res) =>{
-    console.log(req.body);
+    // console.log(req.body);
     let sql = "UPDATE `categorys` SET `CategoryName`=? WHERE CategoryID =?";
     let body = req.body;
     let arrsql = [body.CategoryName ,body.CategoryID];

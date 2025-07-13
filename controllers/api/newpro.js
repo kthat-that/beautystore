@@ -49,7 +49,6 @@ const getNewProductDetail = (req, res) => {
       return res.status(404).send('New product not found.');
     }
 
-    // Send to same `details.ejs` but adapt to field names
     res.render('pages/details', {
       product: {
         ProductID: results[0].id,
@@ -130,7 +129,7 @@ const deletenewproduct = (req, res) =>{
             
         }
         if (fs.existsSync(imgPath)) {
-            fs.unlinkSync(imgPath); // Remove associated avatar
+            fs.unlinkSync(imgPath); 
         }
         res.redirect('/tbl_newproducts');
     })
@@ -190,7 +189,7 @@ const postEditnewpro = (req, res) => {
         });
 
     } else {
-        // No new image; just update data
+        
         const sql = "UPDATE `newproducts` SET `name`=?, `des`=?, `price`=?, `img`=? WHERE id=?";
         const values = [name, des, price, file, id];
 
